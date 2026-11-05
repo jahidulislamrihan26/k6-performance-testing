@@ -1,0 +1,55 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with: { node-version: 22 }
+      - uses: grafana/setup-k6-action@v1
+      - name: Every relative link in the documents works
+        run: node tools/check-links.js
+      # A short profile (smoke, load, journey, spike at gentler rates). The full 20-minute run is committed in results/.
+      - run: node tools/run-all.js --profile ci
+      - uses: actions/upload-artifact@v6
+        if: always()
+        with:
+          name: performance-reports
+          path: results
+
+  # Publishes the committed full-run report as a website: https://jahidulislamrihan26.github.io/k6-performance-testing/
+  pages:
+    needs: test
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v6
+      - run: |
+          mkdir site
+          cp results/report.html site/index.html
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: site
+      - id: deploy
+        uses: actions/deploy-pages@v5

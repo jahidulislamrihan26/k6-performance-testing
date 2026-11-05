@@ -6,7 +6,7 @@
 | Run date | 2026-11-05 |
 | Tool | k6 2.3.0 (open model for load, stress, spike and soak; closed model for shopper journeys) |
 | Machine | Intel Core i7-7500U, 2 physical cores (4 logical), 3.9 GB RAM, Windows 10. **The load generator and the shop share this machine** |
-| Full numbers | [live HTML report](https://jahidulislamrihan26.github.io/sqa-portfolio/performance/), [results/REPORT.md](../results/REPORT.md), raw JSON per test in `results/` |
+| Full numbers | [live HTML report](https://jahidulislamrihan26.github.io/k6-performance-testing/), [results/REPORT.md](../results/REPORT.md), raw JSON per test in `results/` |
 
 ## 1. Executive summary
 At normal traffic the shop is very fast: **400 requests per second give p95 17 ms and no errors**, against a target of 300 ms, and every endpoint meets its own target. **Real shopper journeys work**: 5,110 complete journeys (browse, search, product page, login, order, read back) at up to 400 shoppers at once all succeeded and every order total was correct.

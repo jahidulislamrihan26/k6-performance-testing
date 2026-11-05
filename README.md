@@ -1,4 +1,6 @@
-﻿# Performance Testing Project: k6 on a Real Demo Shop
+﻿# Performance Testing: k6 on a Real Demo Shop
+
+[![CI](https://github.com/jahidulislamrihan26/k6-performance-testing/actions/workflows/ci.yml/badge.svg)](https://github.com/jahidulislamrihan26/k6-performance-testing/actions/workflows/ci.yml) Part of the [SQA portfolio](https://github.com/jahidulislamrihan26/sqa-portfolio).
 
 Smoke, load, shopper-journey, stress, spike and soak tests with clear pass/fail targets, resource telemetry that explains *why* the shop slows down, a generated report, and findings with recommendations.
 
@@ -13,7 +15,7 @@ Smoke, load, shopper-journey, stress, spike and soak tests with clear pass/fail 
 | Is the capacity number stable? | **No: it varied about 2x between runs** (shop and load generator share two cores, laptop throttles). The report says so and gives a range |
 | Healthy over time? | **Yes** in a 4-minute soak: flat latency, flat memory |
 
-Full write-up: [docs/test-summary-report.md](docs/test-summary-report.md). Interactive report: [open it live](https://jahidulislamrihan26.github.io/sqa-portfolio/performance/) (also saved as [results/report.html](results/report.html)).
+Full write-up: [docs/test-summary-report.md](docs/test-summary-report.md). Interactive report: [open it live](https://jahidulislamrihan26.github.io/k6-performance-testing/) (also saved as [results/report.html](results/report.html)).
 
 ## What is inside
 | Path | Purpose |
@@ -52,3 +54,8 @@ k6 exits with code 99 when a threshold is crossed, so a missed target fails the 
 - A small single-process app; the method transfers, the exact numbers belong to this code and machine.
 - Short soak (4 minutes). The public-API test is intentionally tiny (5 users, 30 s).
 
+## Related projects
+- [api-testing-newman-openapi](https://github.com/jahidulislamrihan26/api-testing-newman-openapi): API testing with an OpenAPI spec.
+- [playwright-ui-automation-pom](https://github.com/jahidulislamrihan26/playwright-ui-automation-pom): UI automation with the Page Object Model.
+- [manual-testing-saucedemo](https://github.com/jahidulislamrihan26/manual-testing-saucedemo): manual testing package.
+- [qa-templates](https://github.com/jahidulislamrihan26/qa-templates): reusable test plan and report templates.
