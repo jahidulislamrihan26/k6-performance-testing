@@ -61,5 +61,6 @@ k6 exits with code 99 when a threshold is crossed, so a missed target fails the 
 ## Related projects
 - [api-testing-newman-openapi](https://github.com/jahidulislamrihan26/api-testing-newman-openapi): API testing with an OpenAPI spec.
 - [playwright-ui-automation-pom](https://github.com/jahidulislamrihan26/playwright-ui-automation-pom): UI automation with the Page Object Model.
+- [cypress-e2e-saucedemo](https://github.com/jahidulislamrihan26/cypress-e2e-saucedemo) and [selenium-pytest-saucedemo](https://github.com/jahidulislamrihan26/selenium-pytest-saucedemo): the same site automated in Cypress and in Selenium with Python, to compare the tools.
 - [manual-testing-saucedemo](https://github.com/jahidulislamrihan26/manual-testing-saucedemo): manual testing package.
 - [qa-templates](https://github.com/jahidulislamrihan26/qa-templates): reusable test plan and report templates.
