@@ -1,0 +1,23 @@
+{
+  "test": "public-baseline",
+  "finishedAt": "2026-11-05T04:28:54.760Z",
+  "durationSec": 31,
+  "overall": {
+    "requests": 250,
+    "rps": 8.1,
+    "failedRate": 0,
+    "checksRate": 1,
+    "dropped": 0,
+    "vusMax": 5,
+    "latency": {
+      "avg": 105.38791519999998,
+      "med": 42.347899999999996,
+      "p90": 304.1668399999999,
+      "p95": 361.0573599999999,
+      "p99": 486.933289,
+      "max": 763.8278
+    }
+  },
+  "endpoints": {},
+  "stages": []
+}
