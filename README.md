@@ -45,6 +45,7 @@ Full write-up: [docs/test-summary-report.md](docs/test-summary-report.md). Inter
 Needs [k6](https://k6.io/docs/get-started/installation/) and Node 22.13 or newer.
 ```bash
 npm test          # full suite, about 20 minutes, writes results/
+npm run test:tools # tests for the project's own tooling and its committed results (about 1 second)
 npm run test:sql  # 20 SQL data-integrity checks on the shop database (about 5 seconds, no k6 needed)
 npm run test:ci   # short profile (smoke, load, journey, spike) used in GitHub Actions
 node tools/run-all.js --only load,journey
