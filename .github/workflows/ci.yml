@@ -22,6 +22,8 @@ jobs:
       - uses: grafana/setup-k6-action@v1
       - name: Every relative link in the documents works
         run: node tools/check-links.js
+      - name: SQL data-integrity tests (20 checks on the shop database)
+        run: npm run test:sql
       # A short profile (smoke, load, journey, spike at gentler rates). The full 20-minute run is committed in results/.
       - run: node tools/run-all.js --profile ci
       - uses: actions/upload-artifact@v7

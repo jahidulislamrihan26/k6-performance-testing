@@ -20,7 +20,11 @@ const MAX_INFLIGHT = Number(process.env.MAX_INFLIGHT || 256);
 const PBKDF2_ITER = 10000;
 
 // ---------------------------------------------------------------- database
-const db = new DatabaseSync(':memory:');
+// DB_FILE (optional) keeps the database in a file so the SQL tests can open it read-only; by default it lives in memory.
+const DB_FILE = process.env.DB_FILE || ':memory:';
+if (DB_FILE !== ':memory:') for (const s of ['', '-wal', '-shm']) require('fs').rmSync(DB_FILE + s, { force: true });
+const db = new DatabaseSync(DB_FILE);
+if (DB_FILE !== ':memory:') db.exec('PRAGMA journal_mode = WAL');
 db.exec(`
   CREATE TABLE products (id INTEGER PRIMARY KEY, name TEXT NOT NULL, category TEXT NOT NULL, price REAL NOT NULL, description TEXT NOT NULL, stock INTEGER NOT NULL);
   CREATE INDEX idx_products_category ON products(category);

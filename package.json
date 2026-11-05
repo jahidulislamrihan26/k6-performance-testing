@@ -20,6 +20,7 @@
     "sut": "node --expose-gc sut/server.js",
     "test": "node tools/run-all.js",
     "test:ci": "node tools/run-all.js --profile ci",
+    "test:sql": "node --test \"sut/test/*.test.js\"",
     "report": "node tools/report.js",
     "data": "node tools/make-data.js"
   }

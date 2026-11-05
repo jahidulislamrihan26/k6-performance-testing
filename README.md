@@ -14,6 +14,7 @@ Smoke, load, shopper-journey, stress, spike and soak tests with clear pass/fail 
 | What runs out? | **CPU of one Node.js process** (event loop delayed up to about 1 s); memory is not a factor |
 | Is the capacity number stable? | **No: it varied about 2x between runs** (shop and load generator share two cores, laptop throttles). The report says so and gives a range |
 | Healthy over time? | **Yes** in a 4-minute soak: flat latency, flat memory |
+| Is the data correct, not just fast? | **Yes, with 3 findings.** 20 SQL tests on the database: order totals match their lines to the cent, no orphan rows, rejected orders write nothing, SQL injection changes nothing, queries use their indexes. Findings: no foreign keys, no CHECK constraints, and **stock is never reduced by an order (the shop can oversell)** |
 
 Full write-up: [docs/test-summary-report.md](docs/test-summary-report.md). Interactive report: [open it live](https://jahidulislamrihan26.github.io/k6-performance-testing/) (also saved as [results/report.html](results/report.html)).
 
@@ -26,6 +27,7 @@ Full write-up: [docs/test-summary-report.md](docs/test-summary-report.md). Inter
 | `k6/public-baseline.js` | Very gentle check of the real JSONPlaceholder API |
 | `k6/lib/common.js` | Traffic mix, test shoppers, tokens, resource sampling, thresholds, per-step tagging, JSON summaries |
 | `sut/server.js` | The demo shop: Node.js with a real SQLite database (no simulation, no dependencies) |
+| `sut/test/db-integrity.test.js` | SQL data-integrity tests: orders are placed through the API, then the database is checked with SQL (read-only). Known weaknesses are marked `todo` |
 | `data/users.json` | 100 test shoppers shared by all virtual users (`npm run data` regenerates it) |
 | `tools/run-all.js`, `tools/report.js` | Runner and report generator |
 | `results/` | JSON per test, `REPORT.md`, `report.html` |
@@ -43,6 +45,7 @@ Full write-up: [docs/test-summary-report.md](docs/test-summary-report.md). Inter
 Needs [k6](https://k6.io/docs/get-started/installation/) and Node 22.13 or newer.
 ```bash
 npm test          # full suite, about 20 minutes, writes results/
+npm run test:sql  # 20 SQL data-integrity checks on the shop database (about 5 seconds, no k6 needed)
 npm run test:ci   # short profile (smoke, load, journey, spike) used in GitHub Actions
 node tools/run-all.js --only load,journey
 SCALE=30 node tools/run-all.js --only soak     # a 2-hour soak
