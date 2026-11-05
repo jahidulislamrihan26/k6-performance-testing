@@ -12,7 +12,7 @@ Smoke, load, stress, spike and soak tests with clear pass/fail targets, a genera
 | Healthy over time? | **Yes** in a 4-minute soak: flat latency, flat memory |
 | Root cause | The 4-connection database pool is the bottleneck |
 
-Full write-up: [docs/test-summary-report.md](docs/test-summary-report.md). Interactive report: [results/report.html](results/report.html) (download and open in a browser).
+Full write-up: [docs/test-summary-report.md](docs/test-summary-report.md). Interactive report: [open it live](https://jahidulislamrihan26.github.io/sqa-portfolio/performance/) (also saved as [results/report.html](results/report.html)).
 
 ## What is inside
 | Path | Purpose |

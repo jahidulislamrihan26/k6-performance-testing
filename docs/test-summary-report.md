@@ -6,7 +6,7 @@
 | Run date | 2026-11-05 |
 | Tool | k6 2.3.0 (open workload model, fixed arrival rate) |
 | Machine | Intel Core i7-7500U, 4 logical cores, 3.9 GB RAM, Windows 10. Load generator and target share it |
-| Full numbers | [results/REPORT.md](../results/REPORT.md), [results/report.html](../results/report.html) (download and open), raw JSON per test in `results/` |
+| Full numbers | [results/REPORT.md](../results/REPORT.md), [live HTML report](https://jahidulislamrihan26.github.io/sqa-portfolio/performance/) (also [results/report.html](../results/report.html)), raw JSON per test in `results/` |
 
 ## 1. Executive summary
 At normal traffic the shop is fast: **p95 21 ms and 0% errors at 150 req/s**, against a target of 300 ms. It can carry **about 500 req/s** within its targets, roughly **3.3 times the planned load**. Above that it **hits a cliff, not a slope**: at 500 req/s p95 is 56 ms, at 600 req/s it is 1,512 ms with 9.7% errors, and at 800 req/s 37% of requests fail.
