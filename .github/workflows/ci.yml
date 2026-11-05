@@ -24,7 +24,7 @@ jobs:
         run: node tools/check-links.js
       # A short profile (smoke, load, journey, spike at gentler rates). The full 20-minute run is committed in results/.
       - run: node tools/run-all.js --profile ci
-      - uses: actions/upload-artifact@v6
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: performance-reports
