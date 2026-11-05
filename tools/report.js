@@ -10,7 +10,15 @@ const exit = Object.fromEntries(run.tests.map((t) => [t.test, t.exitCode]));
 const data = Object.fromEntries(run.tests.map((t) => [t.test, rd(`${t.test}.json`)]));
 const ms = (v) => (v == null ? 'n/a' : `${Math.round(v)} ms`);
 const pct = (v) => (v == null ? 'n/a' : `${(100 * v).toFixed(2)}%`);
-const verdict = (t) => (exit[t] === 0 ? 'PASS' : exit[t] === undefined ? 'not run' : 'FAIL');
+// Stress and spike are characterisation tests: "PASS" would be misleading next to 12% errors, so they get their own wording.
+const verdict = (t) => {
+  if (exit[t] === undefined) return 'not run';
+  if (exit[t] !== 0) return 'FAIL';
+  if (t === 'stress' && typeof knee !== 'undefined' && knee) return `LIMIT FOUND: ~${sustain ? sustain.rate : '?'} req/s`;
+  if (t === 'spike' && typeof spike !== 'undefined' && spike) return spike.ok ? 'RECOVERED' : 'NOT RECOVERED';
+  return 'PASS';
+};
+const verdictClass = (t) => (/^(PASS|RECOVERED)$/.test(verdict(t)) ? 'pass' : /LIMIT FOUND/.test(verdict(t)) ? 'info' : 'fail');
 
 // ---------- analysis
 const s = data.stress;
@@ -78,7 +86,7 @@ if (soak) {
 fs.writeFileSync(path.join(R, 'REPORT.md'), L.join('\n') + '\n');
 
 // ---------- HTML
-const css = 'body{font:15px/1.5 system-ui,Segoe UI,Arial;margin:0;background:#f5f6f8;color:#1b2430}main{max-width:1000px;margin:auto;padding:24px}h1{margin:0 0 4px}h2{margin-top:32px}.card{background:#fff;border-radius:8px;padding:16px;box-shadow:0 1px 3px #0002;margin:12px 0;overflow-x:auto}table{border-collapse:collapse;width:100%}th,td{padding:6px 10px;border-bottom:1px solid #e3e6ea;text-align:left;white-space:nowrap}th{background:#1f3864;color:#fff}.pass{color:#0a7d33;font-weight:700}.fail{color:#c0212a;font-weight:700}.deg{background:#fff3cd}small{color:#5a6573}.kpi{display:flex;gap:12px;flex-wrap:wrap}.kpi div{background:#fff;border-radius:8px;padding:12px 18px;box-shadow:0 1px 3px #0002}.kpi b{display:block;font-size:22px}';
+const css = 'body{font:15px/1.5 system-ui,Segoe UI,Arial;margin:0;background:#f5f6f8;color:#1b2430}main{max-width:1000px;margin:auto;padding:24px}h1{margin:0 0 4px}h2{margin-top:32px}.card{background:#fff;border-radius:8px;padding:16px;box-shadow:0 1px 3px #0002;margin:12px 0;overflow-x:auto}table{border-collapse:collapse;width:100%}th,td{padding:6px 10px;border-bottom:1px solid #e3e6ea;text-align:left;white-space:nowrap}th{background:#1f3864;color:#fff}.pass{color:#0a7d33;font-weight:700}.fail{color:#c0212a;font-weight:700}.info{color:#1f6feb;font-weight:700}.deg{background:#fff3cd}small{color:#5a6573}.kpi{display:flex;gap:12px;flex-wrap:wrap}.kpi div{background:#fff;border-radius:8px;padding:12px 18px;box-shadow:0 1px 3px #0002}.kpi b{display:block;font-size:22px}';
 function chart(title, xs, series, opts = {}) {
   const W = 620, H = 260, P = { l: 56, r: 16, t: 28, b: 40 };
   const max = opts.max || Math.max(...series.flatMap((x) => x.values), opts.line || 0) * 1.1 || 1;
@@ -93,8 +101,8 @@ function chart(title, xs, series, opts = {}) {
 }
 const table = (head, rows) => `<table><tr>${head.map((h) => `<th>${h}</th>`).join('')}</tr>${rows.map((r) => `<tr class="${r.cls || ''}">${r.cells.map((c) => `<td>${c}</td>`).join('')}</tr>`).join('')}</table>`;
 let H = `<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Performance test report</title><style>${css}</style><main><h1>Performance Test Report</h1><small>${run.env.date} | profile ${run.env.profile} | ${run.env.cpu}, ${run.env.cores} cores, ${run.env.memGb} GB | k6 ${run.env.k6} | load generator and system under test share this machine</small>`;
-H += '<div class="kpi">' + run.tests.map((t) => `<div><small>${t.test}</small><b class="${exit[t.test] === 0 ? 'pass' : 'fail'}">${verdict(t.test)}</b></div>`).join('') + '</div>';
-H += '<h2>Summary</h2><div class="card">' + table(['Test', 'Purpose', 'Result', 'Requests', 'Avg rate', 'p95', 'p99', 'Errors'], run.tests.map((t) => { const o = data[t.test] && data[t.test].overall; return { cells: [t.test, purpose[t.test] || '', `<span class="${exit[t.test] === 0 ? 'pass' : 'fail'}">${verdict(t.test)}</span>`, o ? o.requests : 'n/a', o ? o.rps + '/s' : 'n/a', o ? ms(o.latency.p95) : 'n/a', o ? ms(o.latency.p99) : 'n/a', o ? pct(o.failedRate) : 'n/a'] }; })) + `</div><small>SLOs: p95 &lt; ${SLO.p95} ms, p99 &lt; ${SLO.p99} ms, errors &lt; ${SLO.err * 100}%.</small>`;
+H += '<div class="kpi">' + run.tests.map((t) => `<div><small>${t.test}</small><b class="${verdictClass(t.test)}" style="font-size:16px">${verdict(t.test)}</b></div>`).join('') + '</div>';
+H += '<h2>Summary</h2><div class="card">' + table(['Test', 'Purpose', 'Result', 'Requests', 'Avg rate', 'p95', 'p99', 'Errors'], run.tests.map((t) => { const o = data[t.test] && data[t.test].overall; return { cells: [t.test, purpose[t.test] || '', `<span class="${verdictClass(t.test)}">${verdict(t.test)}</span>`, o ? o.requests : 'n/a', o ? o.rps + '/s' : 'n/a', o ? ms(o.latency.p95) : 'n/a', o ? ms(o.latency.p99) : 'n/a', o ? pct(o.failedRate) : 'n/a'] }; })) + `</div><small>SLOs: p95 &lt; ${SLO.p95} ms, p99 &lt; ${SLO.p99} ms, errors &lt; ${SLO.err * 100}%.</small>`;
 if (s) {
   const steps = s.stages.filter((x) => x.name.startsWith('rps_'));
   H += '<h2>Stress: where does it break?</h2>';

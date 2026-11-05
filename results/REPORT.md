@@ -10,8 +10,8 @@ Load generator and system under test ran on the same machine: Intel(R) Core(TM) 
 |---|---|---|---|---|---|---|---|
 | smoke | System and script work | **PASS** | 63 | 3.1 req/s | 33 ms | 44 ms | 0.00% |
 | load | Meets SLOs at expected traffic | **PASS** | 11999 | 120 req/s | 21 ms | 34 ms | 0.00% |
-| stress | Find breaking point | **PASS** | 74748 | 368.2 req/s | 1510 ms | 1520 ms | 11.79% |
-| spike | Survive and recover from a sudden surge | **PASS** | 26420 | 293.5 req/s | 1515 ms | 1525 ms | 29.56% |
+| stress | Find breaking point | **LIMIT FOUND: ~500 req/s** | 74748 | 368.2 req/s | 1510 ms | 1520 ms | 11.79% |
+| spike | Survive and recover from a sudden surge | **RECOVERED** | 26420 | 293.5 req/s | 1515 ms | 1525 ms | 29.56% |
 | soak | No leak or slow degradation over time | **PASS** | 24017 | 100.1 req/s | 21 ms | 32 ms | 0.00% |
 | public-baseline | Gentle check of a real public API | **PASS** | 250 | 8.1 req/s | 361 ms | 487 ms | 0.00% |
 
