@@ -1,9 +1,21 @@
-﻿{
+{
   "name": "performance-testing",
   "version": "2.0.0",
   "private": true,
   "description": "k6 performance suite (smoke, load, stress, spike, soak) against a local demo shop API",
-  "engines": { "node": ">=22.13" },
+  "license": "MIT",
+  "author": "Md. Jahidul Islam Rihan",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jahidulislamrihan26/k6-performance-testing.git"
+  },
+  "homepage": "https://github.com/jahidulislamrihan26/k6-performance-testing#readme",
+  "bugs": {
+    "url": "https://github.com/jahidulislamrihan26/k6-performance-testing/issues"
+  },
+  "engines": {
+    "node": ">=22.13"
+  },
   "scripts": {
     "sut": "node --expose-gc sut/server.js",
     "test": "node tools/run-all.js",
@@ -12,4 +24,3 @@
     "data": "node tools/make-data.js"
   }
 }
-
