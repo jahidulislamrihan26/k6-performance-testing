@@ -18,6 +18,8 @@ Smoke, load, shopper-journey, stress, spike and soak tests with clear pass/fail 
 
 Full write-up: [docs/test-summary-report.md](docs/test-summary-report.md). Interactive report: [open it live](https://jahidulislamrihan26.github.io/k6-performance-testing/) (also saved as [results/report.html](results/report.html)).
 
+[![The performance report: every test with its result, latency and error rate](docs/images/report-overview.png)](https://jahidulislamrihan26.github.io/k6-performance-testing/)
+
 ## What is inside
 | Path | Purpose |
 |---|---|
