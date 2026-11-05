@@ -1,13 +1,15 @@
-{
+﻿{
   "name": "performance-testing",
   "version": "2.0.0",
   "private": true,
   "description": "k6 performance suite (smoke, load, stress, spike, soak) against a local demo shop API",
-  "engines": { "node": ">=20" },
+  "engines": { "node": ">=22.13" },
   "scripts": {
     "sut": "node --expose-gc sut/server.js",
     "test": "node tools/run-all.js",
     "test:ci": "node tools/run-all.js --profile ci",
-    "report": "node tools/report.js"
+    "report": "node tools/report.js",
+    "data": "node tools/make-data.js"
   }
 }
+

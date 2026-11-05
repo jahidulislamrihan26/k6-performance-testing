@@ -1,23 +1,24 @@
 {
   "test": "smoke",
-  "finishedAt": "2026-11-05T04:17:45.913Z",
+  "finishedAt": "2026-11-05T08:40:38.732Z",
   "durationSec": 20,
   "overall": {
-    "requests": 63,
-    "rps": 3.1,
+    "requests": 86,
+    "rps": 4.3,
     "failedRate": 0,
     "checksRate": 1,
     "dropped": 0,
     "vusMax": 1,
     "latency": {
-      "avg": 19.122238095238096,
-      "med": 17.7787,
-      "p90": 29.25526000000001,
-      "p95": 33.30571,
-      "p99": 44.19704200000002,
-      "max": 48.2462
+      "avg": 3.056101162790697,
+      "med": 1.6877,
+      "p90": 5.45195,
+      "p95": 10.9851,
+      "p99": 14.139030000000039,
+      "max": 19.7951
     }
   },
+  "memory": null,
   "endpoints": {},
   "stages": []
 }

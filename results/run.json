@@ -2,7 +2,7 @@
   "env": {
     "profile": "full",
     "scale": 1,
-    "date": "2026-11-05T04:28:55.349Z",
+    "date": "2026-11-05T08:55:14.994Z",
     "os": "Windows_NT 10.0.19045",
     "cpu": "Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz",
     "cores": 4,
@@ -22,6 +22,11 @@
       "seconds": 101
     },
     {
+      "test": "journey",
+      "exitCode": 0,
+      "seconds": 180
+    },
+    {
       "test": "stress",
       "exitCode": 0,
       "seconds": 204
@@ -29,7 +34,7 @@
     {
       "test": "spike",
       "exitCode": 0,
-      "seconds": 92
+      "seconds": 91
     },
     {
       "test": "soak",
@@ -39,7 +44,7 @@
     {
       "test": "public-baseline",
       "exitCode": 0,
-      "seconds": 31
+      "seconds": 32
     }
   ]
 }

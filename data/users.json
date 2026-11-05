@@ -1,0 +1,402 @@
+[
+ {
+  "email": "user1@shop.test",
+  "password": "Passw0rd!1"
+ },
+ {
+  "email": "user2@shop.test",
+  "password": "Passw0rd!2"
+ },
+ {
+  "email": "user3@shop.test",
+  "password": "Passw0rd!3"
+ },
+ {
+  "email": "user4@shop.test",
+  "password": "Passw0rd!4"
+ },
+ {
+  "email": "user5@shop.test",
+  "password": "Passw0rd!5"
+ },
+ {
+  "email": "user6@shop.test",
+  "password": "Passw0rd!6"
+ },
+ {
+  "email": "user7@shop.test",
+  "password": "Passw0rd!7"
+ },
+ {
+  "email": "user8@shop.test",
+  "password": "Passw0rd!8"
+ },
+ {
+  "email": "user9@shop.test",
+  "password": "Passw0rd!9"
+ },
+ {
+  "email": "user10@shop.test",
+  "password": "Passw0rd!10"
+ },
+ {
+  "email": "user11@shop.test",
+  "password": "Passw0rd!11"
+ },
+ {
+  "email": "user12@shop.test",
+  "password": "Passw0rd!12"
+ },
+ {
+  "email": "user13@shop.test",
+  "password": "Passw0rd!13"
+ },
+ {
+  "email": "user14@shop.test",
+  "password": "Passw0rd!14"
+ },
+ {
+  "email": "user15@shop.test",
+  "password": "Passw0rd!15"
+ },
+ {
+  "email": "user16@shop.test",
+  "password": "Passw0rd!16"
+ },
+ {
+  "email": "user17@shop.test",
+  "password": "Passw0rd!17"
+ },
+ {
+  "email": "user18@shop.test",
+  "password": "Passw0rd!18"
+ },
+ {
+  "email": "user19@shop.test",
+  "password": "Passw0rd!19"
+ },
+ {
+  "email": "user20@shop.test",
+  "password": "Passw0rd!20"
+ },
+ {
+  "email": "user21@shop.test",
+  "password": "Passw0rd!21"
+ },
+ {
+  "email": "user22@shop.test",
+  "password": "Passw0rd!22"
+ },
+ {
+  "email": "user23@shop.test",
+  "password": "Passw0rd!23"
+ },
+ {
+  "email": "user24@shop.test",
+  "password": "Passw0rd!24"
+ },
+ {
+  "email": "user25@shop.test",
+  "password": "Passw0rd!25"
+ },
+ {
+  "email": "user26@shop.test",
+  "password": "Passw0rd!26"
+ },
+ {
+  "email": "user27@shop.test",
+  "password": "Passw0rd!27"
+ },
+ {
+  "email": "user28@shop.test",
+  "password": "Passw0rd!28"
+ },
+ {
+  "email": "user29@shop.test",
+  "password": "Passw0rd!29"
+ },
+ {
+  "email": "user30@shop.test",
+  "password": "Passw0rd!30"
+ },
+ {
+  "email": "user31@shop.test",
+  "password": "Passw0rd!31"
+ },
+ {
+  "email": "user32@shop.test",
+  "password": "Passw0rd!32"
+ },
+ {
+  "email": "user33@shop.test",
+  "password": "Passw0rd!33"
+ },
+ {
+  "email": "user34@shop.test",
+  "password": "Passw0rd!34"
+ },
+ {
+  "email": "user35@shop.test",
+  "password": "Passw0rd!35"
+ },
+ {
+  "email": "user36@shop.test",
+  "password": "Passw0rd!36"
+ },
+ {
+  "email": "user37@shop.test",
+  "password": "Passw0rd!37"
+ },
+ {
+  "email": "user38@shop.test",
+  "password": "Passw0rd!38"
+ },
+ {
+  "email": "user39@shop.test",
+  "password": "Passw0rd!39"
+ },
+ {
+  "email": "user40@shop.test",
+  "password": "Passw0rd!40"
+ },
+ {
+  "email": "user41@shop.test",
+  "password": "Passw0rd!41"
+ },
+ {
+  "email": "user42@shop.test",
+  "password": "Passw0rd!42"
+ },
+ {
+  "email": "user43@shop.test",
+  "password": "Passw0rd!43"
+ },
+ {
+  "email": "user44@shop.test",
+  "password": "Passw0rd!44"
+ },
+ {
+  "email": "user45@shop.test",
+  "password": "Passw0rd!45"
+ },
+ {
+  "email": "user46@shop.test",
+  "password": "Passw0rd!46"
+ },
+ {
+  "email": "user47@shop.test",
+  "password": "Passw0rd!47"
+ },
+ {
+  "email": "user48@shop.test",
+  "password": "Passw0rd!48"
+ },
+ {
+  "email": "user49@shop.test",
+  "password": "Passw0rd!49"
+ },
+ {
+  "email": "user50@shop.test",
+  "password": "Passw0rd!50"
+ },
+ {
+  "email": "user51@shop.test",
+  "password": "Passw0rd!51"
+ },
+ {
+  "email": "user52@shop.test",
+  "password": "Passw0rd!52"
+ },
+ {
+  "email": "user53@shop.test",
+  "password": "Passw0rd!53"
+ },
+ {
+  "email": "user54@shop.test",
+  "password": "Passw0rd!54"
+ },
+ {
+  "email": "user55@shop.test",
+  "password": "Passw0rd!55"
+ },
+ {
+  "email": "user56@shop.test",
+  "password": "Passw0rd!56"
+ },
+ {
+  "email": "user57@shop.test",
+  "password": "Passw0rd!57"
+ },
+ {
+  "email": "user58@shop.test",
+  "password": "Passw0rd!58"
+ },
+ {
+  "email": "user59@shop.test",
+  "password": "Passw0rd!59"
+ },
+ {
+  "email": "user60@shop.test",
+  "password": "Passw0rd!60"
+ },
+ {
+  "email": "user61@shop.test",
+  "password": "Passw0rd!61"
+ },
+ {
+  "email": "user62@shop.test",
+  "password": "Passw0rd!62"
+ },
+ {
+  "email": "user63@shop.test",
+  "password": "Passw0rd!63"
+ },
+ {
+  "email": "user64@shop.test",
+  "password": "Passw0rd!64"
+ },
+ {
+  "email": "user65@shop.test",
+  "password": "Passw0rd!65"
+ },
+ {
+  "email": "user66@shop.test",
+  "password": "Passw0rd!66"
+ },
+ {
+  "email": "user67@shop.test",
+  "password": "Passw0rd!67"
+ },
+ {
+  "email": "user68@shop.test",
+  "password": "Passw0rd!68"
+ },
+ {
+  "email": "user69@shop.test",
+  "password": "Passw0rd!69"
+ },
+ {
+  "email": "user70@shop.test",
+  "password": "Passw0rd!70"
+ },
+ {
+  "email": "user71@shop.test",
+  "password": "Passw0rd!71"
+ },
+ {
+  "email": "user72@shop.test",
+  "password": "Passw0rd!72"
+ },
+ {
+  "email": "user73@shop.test",
+  "password": "Passw0rd!73"
+ },
+ {
+  "email": "user74@shop.test",
+  "password": "Passw0rd!74"
+ },
+ {
+  "email": "user75@shop.test",
+  "password": "Passw0rd!75"
+ },
+ {
+  "email": "user76@shop.test",
+  "password": "Passw0rd!76"
+ },
+ {
+  "email": "user77@shop.test",
+  "password": "Passw0rd!77"
+ },
+ {
+  "email": "user78@shop.test",
+  "password": "Passw0rd!78"
+ },
+ {
+  "email": "user79@shop.test",
+  "password": "Passw0rd!79"
+ },
+ {
+  "email": "user80@shop.test",
+  "password": "Passw0rd!80"
+ },
+ {
+  "email": "user81@shop.test",
+  "password": "Passw0rd!81"
+ },
+ {
+  "email": "user82@shop.test",
+  "password": "Passw0rd!82"
+ },
+ {
+  "email": "user83@shop.test",
+  "password": "Passw0rd!83"
+ },
+ {
+  "email": "user84@shop.test",
+  "password": "Passw0rd!84"
+ },
+ {
+  "email": "user85@shop.test",
+  "password": "Passw0rd!85"
+ },
+ {
+  "email": "user86@shop.test",
+  "password": "Passw0rd!86"
+ },
+ {
+  "email": "user87@shop.test",
+  "password": "Passw0rd!87"
+ },
+ {
+  "email": "user88@shop.test",
+  "password": "Passw0rd!88"
+ },
+ {
+  "email": "user89@shop.test",
+  "password": "Passw0rd!89"
+ },
+ {
+  "email": "user90@shop.test",
+  "password": "Passw0rd!90"
+ },
+ {
+  "email": "user91@shop.test",
+  "password": "Passw0rd!91"
+ },
+ {
+  "email": "user92@shop.test",
+  "password": "Passw0rd!92"
+ },
+ {
+  "email": "user93@shop.test",
+  "password": "Passw0rd!93"
+ },
+ {
+  "email": "user94@shop.test",
+  "password": "Passw0rd!94"
+ },
+ {
+  "email": "user95@shop.test",
+  "password": "Passw0rd!95"
+ },
+ {
+  "email": "user96@shop.test",
+  "password": "Passw0rd!96"
+ },
+ {
+  "email": "user97@shop.test",
+  "password": "Passw0rd!97"
+ },
+ {
+  "email": "user98@shop.test",
+  "password": "Passw0rd!98"
+ },
+ {
+  "email": "user99@shop.test",
+  "password": "Passw0rd!99"
+ },
+ {
+  "email": "user100@shop.test",
+  "password": "Passw0rd!100"
+ }
+]
