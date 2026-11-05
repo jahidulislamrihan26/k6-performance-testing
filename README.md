@@ -42,8 +42,3 @@ node tools/run-all.js --only load,stress
 SCALE=30 node tools/run-all.js --only soak     # a 2-hour soak
 ```
 k6 exits with code 99 when a threshold is crossed, so a missed target fails the run and the CI job.
-
-## Honest notes
-- Load generator and target share one small laptop (2 cores); at the highest stress steps k6 dropped about 550 iterations. This is reported, not hidden.
-- Single run; the healthy-range numbers repeated across three separate runs.
-- The public-API test is intentionally tiny (5 users, 30 s).
